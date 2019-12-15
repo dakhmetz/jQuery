@@ -1,3 +1,4 @@
+/*
 document.addEventListener("DOMContentLoaded", function(event) { 
   const modal = document.querySelector('.modal');
   const modalBtn = document.querySelectorAll('[data-toggle=modal]');
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
   }); 
 
-  /* All good up here */
+// All good up here
 
   modal.addEventListener('mouseup', function(event) {
     var menu = document.querySelector('.modal__dialog');
@@ -34,4 +35,38 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
   });
  
+});
+*/
+
+$(document).ready(function () {
+  var modal = $('.modal'),
+      modalBtn = $('[data-toggle=modal'),
+      closeBtn = $('.modal__close');
+  /* console.log(modal);
+  console.log(modalBtn);
+  console.log(closeBtn); */
+
+  modalBtn.on('click', function () {
+    modal.toggleClass('modal--visible');
+  });
+
+  closeBtn.on('click', function () {
+    modal.toggleClass('modal--visible');
+  });
+
+  var top_show = 1800; // В каком положении полосы прокрутки начинать показ кнопки "Наверх"
+  var delay = 1000; // Задержка прокрутки
+  $(window).scroll(function () { // При прокрутке попадаем в эту функцию
+    /* В зависимости от положения полосы прокрукти и значения top_show, скрываем или открываем кнопку "Наверх" */
+    if ($(this).scrollTop() > top_show) $('#top').fadeIn();
+    else $('#top').fadeOut();
+  });
+  $('#top').click(function () { // При клике по кнопке "Наверх" попадаем в эту функцию
+    /* Плавная прокрутка наверх */
+    $('body, html').animate({
+      scrollTop: 0
+    }, delay);
+  });
+
+
 });
