@@ -400,6 +400,15 @@ body {
   font-family: 'Futura Book', sans-serif;
   font-size: 1rem; }
 
+a {
+  outline: none; }
+
+button {
+  outline: none; }
+
+input {
+  outline: none; }
+
 img {
   max-width: 100%; }
 
